@@ -18,3 +18,16 @@ body:
       placeholder: Tell us how the bug happened.
     validations:
       required: true
+  - type: dropdown
+    id: bug-severity
+    attributes:
+      label: Bug Severity
+      description: How severe is the bug's effect on the product's functionality?
+      multiple: false
+      options:
+        - label: severity.VeryLow
+        - label: Low
+        - label: Medium
+        - label: High
+    validations:
+      required: true
