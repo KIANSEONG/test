@@ -8,5 +8,9 @@ jobs:
     steps:
       - name: View issue information
         uses: andymckay/labeler@master
+        run: |
+          x = ${{github.event.issue.body}}; 
+          $MyVar = x;
+          echo "$MyVar"
         with:
           add-labels: "severity.VeryLow"
