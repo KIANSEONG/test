@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: View issue information
         run: |
-          Set-Variable -Name MyVar -Value (${{github.event.issue.body}}, -split, "Bug Severity")[1];
+          Set-Variable -Name MyVar -Value ${{github.event.issue.body}}.split("Bug Severity")[1];
           echo "$MyVar"
       - name: Add Label
         uses: andymckay/labeler@master
