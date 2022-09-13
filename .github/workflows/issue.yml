@@ -3,8 +3,10 @@ on: issues
 jobs:
   job1:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - name: View issue information
-        run: |
-          echo "Issue title: ${{ github.event.issue.title }}"
-          echo "Issue body: ${{ github.event.issue.body }}"
+        uses: andymckay/labeler@master
+        with:
+          add-labels: "severity.VeryLow"
