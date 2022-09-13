@@ -7,8 +7,8 @@ jobs:
       issues: write
     steps:
       - name: View issue information
-        uses: andymckay/labeler@master
-        run: |
+      - uses: andymckay/labeler@master
+      - run: |
           x = ${{github.event.issue.body}}; 
           $MyVar = x;
           echo "$MyVar"
