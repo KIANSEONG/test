@@ -8,8 +8,7 @@ jobs:
     steps:
       - name: View issue information
         run: |
-          x = ${{github.event.issue.body}}; 
-          $MyVar = x;
+          Set-Variable -Name MyVar -Value ${{github.event.issue.body}};
           echo "$MyVar"
       - name: Add Label
         uses: andymckay/labeler@master
