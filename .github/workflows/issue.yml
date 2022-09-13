@@ -5,6 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       issues: write
+    defaults:
+      run:
+        shell: pwsh
     steps:
       - name: View issue information
         run: |
