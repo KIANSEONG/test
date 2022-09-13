@@ -13,8 +13,7 @@ jobs:
         run: |
           Set-Variable -Name Temp -Value "${{github.event.issue.body}}"
           Set-Variable -Name MyVar -Value $Temp.split("Bug Severity")[1];
-          echo "$MyVar"
       - name: Add Label
         uses: andymckay/labeler@master
         with:
-          add-labels: "severity.VeryLow"
+          add-labels: $MyVar
