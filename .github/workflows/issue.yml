@@ -7,10 +7,11 @@ jobs:
       issues: write
     steps:
       - name: View issue information
-      - uses: andymckay/labeler@master
-      - run: |
+        run: |
           x = ${{github.event.issue.body}}; 
           $MyVar = x;
           echo "$MyVar"
+      - name: Add Label
+        uses: andymckay/labeler@master
         with:
           add-labels: "severity.VeryLow"
