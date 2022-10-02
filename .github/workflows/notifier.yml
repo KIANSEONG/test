@@ -1,5 +1,4 @@
 name: GitHub Notifier
-
 on:
   pull_request:
     types: [opened, edited, ready_for_review, review_requested, reopened]
