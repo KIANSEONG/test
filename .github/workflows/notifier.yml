@@ -5,7 +5,6 @@ on:
     types: [opened, closed, edited, ready_for_review, review_requested, reopened]
   pull_request_review_comment:
     types: [created]
-  push:
 
 jobs:
   build:
@@ -13,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: send custom message with args
-      - uses: appleboy/telegram-action@master
+        uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }} # don't change
           token: ${{ secrets.TELEGRAM_TOKEN }} # don't change
