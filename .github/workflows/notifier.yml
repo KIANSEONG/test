@@ -1,20 +1,20 @@
 name: GitHub Notifier
+
 on:
-  pull_request:
-    types: [opened, edited, ready_for_review, review_requested, reopened]
-  pull_request_review_comment:
-    types: [created]
+  repository_dispatch:
+    types: [my-event]
 
 jobs:
   build:
-    name: Build
+    name: Telegram Notify
     runs-on: ubuntu-latest
     steps:
-      - name: send custom message with args
-        uses: appleboy/telegram-action@master
+      - name: Notify telegram group on pull request changes
+        uses: appleboy/telegram-action@v0.1.1
         with:
           to: ${{ secrets.TELEGRAM_TO }} # don't change
           token: ${{ secrets.TELEGRAM_TOKEN }} # don't change
+          ref: ${{ github.event.client_payload.ref }}
           message: |
-            ${{ github.actor }} created/updated a pull request:
-            ${{ github.event.pull_request.title }}
+            **${{ github.event.client_payload.title }}**
+            @${{ github.event.client_payload.creator }} created a pull request.
